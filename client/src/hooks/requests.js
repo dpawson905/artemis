@@ -1,4 +1,4 @@
-const SERVER = "http://localhost:8000";
+const SERVER = "http://localhost:8000/v1";
 
 async function httpGetPlanets() {
   // Load planets and return as JSON.
@@ -38,7 +38,7 @@ async function httpAbortLaunch(id) {
     return await fetch(`${SERVER}/launches/${id}`, {
       method: "DELETE",
     });
-  } catch(err) {
+  } catch (err) {
     console.log(err);
     return {
       ok: false,
