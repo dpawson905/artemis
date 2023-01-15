@@ -8,19 +8,22 @@ const launchesSchema = new mongoose.Schema({
   },
   launchDate: {
     type: Date,
-    required: true,
+    required: [true, "We need a launch date..."],
   },
   mission: {
     type: String,
-    required: true,
+    required: [true, "You must name the mission..."],
   },
   rocket: {
     type: String,
-    required: true,
+    required: [
+      true,
+      "I'm taking a little trip in my favorite... rocket ship with no name... ",
+    ],
   },
   target: {
-    type: mongoose.Types.ObjectId,
-    ref: "Planet",
+    type: String,
+    required: [true, "What planet capitan"],
   },
   upcoming: {
     type: Boolean,

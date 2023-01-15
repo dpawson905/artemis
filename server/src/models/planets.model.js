@@ -3,7 +3,6 @@ const path = require("path");
 const { parse } = require("csv-parse");
 
 const planets = require("./planets.mongo");
-const { get } = require("http");
 
 function isHabitablePlanet(planet) {
   return (
@@ -43,7 +42,14 @@ function loadPlanetsData() {
 }
 
 async function getAllPlanets() {
-  return await planets.find({});
+  return await planets.find(
+    {},
+    {
+      // This excludes these results from found records
+      __v: 0,
+      _id: 0,
+    }
+  );
 }
 
 async function savePlanet(planet) {
