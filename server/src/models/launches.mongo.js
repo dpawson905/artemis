@@ -23,7 +23,10 @@ const launchesSchema = new mongoose.Schema({
   },
   target: {
     type: String,
-    required: [true, "What planet capitan"],
+  },
+  details: {
+    type: String,
+    trim: true
   },
   upcoming: {
     type: Boolean,
