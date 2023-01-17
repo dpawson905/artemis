@@ -7,11 +7,12 @@ const { mongoConnect, mongoDisconnect } = require("../../services/mongo");
 describe("Launches API", () => {
   beforeAll(async () => {
     await mongoConnect();
+    await loadPlanetsData();
   });
 
   afterAll(async () => {
     await mongoDisconnect();
-    await loadPlanetsData();
+    
   });
 
   describe("Test GET /launches", () => {
