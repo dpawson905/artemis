@@ -1,4 +1,4 @@
-const SERVER = process.env.SERVER_URL || "http://localhost:8000/v1";
+const SERVER = "v1";
 
 async function httpGetPlanets() {
   // Load planets and return as JSON.
