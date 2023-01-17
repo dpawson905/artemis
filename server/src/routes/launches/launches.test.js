@@ -1,6 +1,7 @@
 require("dotenv").config();
 const request = require("supertest");
 const app = require("../../app");
+const { loadPlanetsData } = require("../../models/planets.model");
 const { mongoConnect, mongoDisconnect } = require("../../services/mongo");
 
 describe("Launches API", () => {
@@ -9,7 +10,8 @@ describe("Launches API", () => {
   });
 
   afterAll(async () => {
-    await mongoDisconnect()
+    await mongoDisconnect();
+    await loadPlanetsData();
   });
 
   describe("Test GET /launches", () => {
